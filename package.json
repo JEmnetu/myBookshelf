@@ -1,0 +1,33 @@
+{
+  "name": "myBookshelf",
+  "version": "1.0.0",
+  "description": "Full Stack MERN application that allows the user to search for books via the Google Books API and save the books to their own collection.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "client-install": "npm install --prefix client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JEmnetu/myBookshelf.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JEmnetu/myBookshelf/issues"
+  },
+  "homepage": "https://github.com/JEmnetu/myBookshelf#readme",
+  "dependencies": {
+    "concurrently": "^5.2.0",
+    "config": "^3.3.1",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.22"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
