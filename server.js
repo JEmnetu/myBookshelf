@@ -3,7 +3,7 @@ const app = express();
 const config = require("config");
 const mongoose = require("mongoose");
 
-const PORT = process.env.PORT || 6000;
+const PORT = process.env.PORT || 6001;
 
 // Middleware
 app.use(express.json());
