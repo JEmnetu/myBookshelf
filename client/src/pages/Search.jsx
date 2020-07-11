@@ -34,7 +34,6 @@ class Search extends Component {
     return (
       <Container>
         <div>
-          <h1>Search Div</h1>
           <form className="srd" onSubmit={this.onSubmitSearch}>
             <input type="text" id="search" name="search" />
             <button type="submit">Search</button>
