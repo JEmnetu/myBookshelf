@@ -6,3 +6,13 @@
   margin-top: 4rem;
   margin-bottom: 2rem;
 }
+
+#search-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+#nav-btns {
+  text-align: center;
+  margin-bottom: 1rem;
+}

@@ -1,38 +1,63 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import { ListGroup, ListGroupItem, Button, Container } from "reactstrap";
 let axios = require("axios");
 
 class Home extends Component {
+  //   constructor(props) {
+  //     super(props);
+  //     this.state = {
+  //       books: [],
+  //       isLoaded: false,
+  //     };
+  //   }
   state = { books: [], isLoaded: false };
   componentDidMount = () => {
     axios.get("/api/books").then((books) => {
       this.setState({ books: books.data, isLoaded: true });
     });
   };
+  onDelete = (id) => {
+    const savedBooks = [...this.state.books];
+
+    // newBooks.forEach((book) => console.log(book._id));
+    const newBooks = savedBooks.filter((book) => book._id !== id);
+    this.setState(
+      {
+        books: newBooks,
+      },
+      () => {
+        axios.delete(`/api/books/${id}`);
+      }
+    );
+  };
   render() {
-    if (this.state.isLoaded === false) {
+    if (this.state.books < 2) {
       return (
         <Container>
           <div>
-            <h1 style={{ textAlign: "center" }}>HabteJ Bookshelf</h1>
             <h3 style={{ textAlign: "center" }}>
-              The books you save will appear below
+              Search for new books to add to your bookshelf!
             </h3>
           </div>
         </Container>
       );
     } else {
       return (
-        <Container>
+        <Container fluid>
           <div>
-            <h1 style={{ textAlign: "center" }}>HabteJ Bookshelf</h1>
             <ListGroup>
               {this.state.books.map((book, index) => (
                 <ListGroupItem key={index}>
-                  Title: {book.title}
-                  <br />
-                  Author: {book.author}
-                  <br />
+                  <Button
+                    style={{ marginRight: "10rem" }}
+                    size="sm"
+                    color="danger"
+                    onClick={this.onDelete.bind(this, book._id)}
+                  >
+                    &times;
+                  </Button>
+                  Title: {book.title} - Author: {book.author}
                 </ListGroupItem>
               ))}
             </ListGroup>

@@ -4,7 +4,7 @@ import axios from "axios";
 class SearchResult extends Component {
   state = { title: "", author: "" };
   onSave = (book) => {
-    console.log(book);
+    alert("Book has been saved to your bookshelf.");
     this.setState(
       {
         title: book.volumeInfo.title,
@@ -13,6 +13,7 @@ class SearchResult extends Component {
       () => axios.post("/api/books", this.state)
     );
   };
+
   render() {
     if (this.props.ready === true) {
       return (
@@ -38,7 +39,7 @@ class SearchResult extends Component {
     }
     return (
       <div>
-        <h1>Search for a new book!</h1>
+        <h3></h3>
       </div>
     );
   }

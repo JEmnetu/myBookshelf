@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import SearchResult from "../components/SearchResult";
-import { Container } from "reactstrap";
+import { Container, Button } from "reactstrap";
+import { Link } from "react-router-dom";
 let axios = require("axios");
 
 class Search extends Component {
@@ -33,13 +34,13 @@ class Search extends Component {
   render() {
     return (
       <Container>
-        <div>
+        <div id="search-flex">
           <form className="srd" onSubmit={this.onSubmitSearch}>
             <input type="text" id="search" name="search" />
             <button type="submit">Search</button>
           </form>
-          <SearchResult books={this.state.books} ready={this.state.isLoaded} />
         </div>
+        <SearchResult books={this.state.books} ready={this.state.isLoaded} />
       </Container>
     );
   }

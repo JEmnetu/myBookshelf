@@ -24,4 +24,17 @@ router.post("/", (req, res) => {
   newBook.save().then((book) => res.json(book));
 });
 
+// @route DELETE api/books/:id
+// @desc Delete Book
+// @access Public
+
+router.delete("/:id", (req, res) => {
+  Book.deleteOne({ _id: req.params.id })
+    .then(() => {
+      res.json({ success: "True" });
+    })
+    .catch((err) => {
+      res.status(404).json({ success: "False" });
+    });
+});
 module.exports = router;
