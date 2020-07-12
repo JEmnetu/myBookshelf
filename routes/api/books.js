@@ -16,12 +16,17 @@ router.get("/", (req, res) => {
 // @access Public
 
 router.post("/", (req, res) => {
-  const newBook = new Book({
-    title: req.body.title,
-    author: req.body.author,
-  });
+  const { title } = req.body;
+  Book.findOne({ title }).then((book) => {
+    if (book) return res.status(400).json({ msg: "Book already exists" });
 
-  newBook.save().then((book) => res.json(book));
+    const newBook = new Book({
+      title: req.body.title,
+      author: req.body.author,
+    });
+
+    newBook.save().then((book) => res.json(book));
+  });
 });
 
 // @route DELETE api/books/:id

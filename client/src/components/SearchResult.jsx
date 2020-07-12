@@ -4,13 +4,16 @@ import axios from "axios";
 class SearchResult extends Component {
   state = { title: "", author: "" };
   onSave = (book) => {
-    alert("Book has been saved to your bookshelf.");
     this.setState(
       {
         title: book.volumeInfo.title,
         author: book.volumeInfo.authors[0],
       },
-      () => axios.post("/api/books", this.state)
+      () => {
+        axios.post("/api/books", this.state).then(() => {
+          alert("Book has been added to your bookshelf.");
+        });
+      }
     );
   };
 
