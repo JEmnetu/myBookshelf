@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { ListGroup, ListGroupItem, Button } from "reactstrap";
+import { Link } from "react-router-dom";
+
 import axios from "axios";
 class SearchResult extends Component {
   state = { title: "", author: "" };
@@ -7,7 +9,9 @@ class SearchResult extends Component {
     this.setState(
       {
         title: book.volumeInfo.title,
-        author: book.volumeInfo.authors[0],
+        author: book.volumeInfo.authors
+          ? book.volumeInfo.authors
+          : "Author Undefined",
       },
       () => {
         axios.post("/api/books", this.state).then(() => {
@@ -33,7 +37,19 @@ class SearchResult extends Component {
                 >
                   Save
                 </Button>
-                {book.volumeInfo.title}{" "}
+                <h5 className="bookTitle">{book.volumeInfo.title} </h5>
+                <br />
+                <a
+                  href={book.volumeInfo.previewLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  alt="book_image"
+                >
+                  <img
+                    className="bookImg"
+                    src={book.volumeInfo.imageLinks?.smallThumbnail}
+                  />
+                </a>
               </ListGroupItem>
             ))}
           </ListGroup>
