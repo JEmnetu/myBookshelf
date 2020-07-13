@@ -1,6 +1,7 @@
 import React from "react";
 import Search from "./pages/Search";
 import Home from "./pages/Home";
+import NavBar from "./components/NavBar";
 import "bootstrap/dist/css/bootstrap.css";
 import { Button } from "reactstrap";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
@@ -10,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <h1 style={{ textAlign: "center" }}>HabteJ Bookshelf</h1>
+        <NavBar>HabteJ Bookshelf</NavBar>
         <div id="nav-btns">
           <Link to="/Home">
             <Button color="dark">My Books</Button>
