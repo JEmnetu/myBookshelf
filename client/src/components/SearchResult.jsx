@@ -27,7 +27,7 @@ class SearchResult extends Component {
         <div>
           <ListGroup>
             {/* {console.log(this.props.books)} */}
-            {this.props.books.map((book) => (
+            {this.props.books?.map((book) => (
               <ListGroupItem key={book.id}>
                 <Button
                   color="dark"
@@ -56,11 +56,7 @@ class SearchResult extends Component {
         </div>
       );
     }
-    return (
-      <div>
-        <h3></h3>
-      </div>
-    );
+    return <div></div>;
   }
 }
 

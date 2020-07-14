@@ -3,16 +3,28 @@
 }
 
 .srd {
-  margin-top: 4rem;
-  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
 }
 
-#search-flex {
-  display: flex;
-  justify-content: space-between;
+#search-input {
+  width: 80%;
 }
 
 #nav-btns {
   text-align: center;
   margin-bottom: 1rem;
+}
+
+.bookImg {
+  height: 100px;
+  width: 100px;
+  margin-left: 5rem;
+}
+
+.bookTitle {
+  margin: 0;
+  padding: 0;
+
+  margin-left: 5rem;
 }

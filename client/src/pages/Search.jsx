@@ -26,6 +26,7 @@ class Search extends Component {
   // };
   onInputChange = (e) => {
     const query = e.target.value;
+    // Checks initially for an empty search query
     if (query.length === 0) {
       this.setState({ isLoaded: false });
       return;
@@ -34,24 +35,30 @@ class Search extends Component {
     axios
       .get(`https://www.googleapis.com/books/v1/volumes?q=${e.target.value}`)
       .then((books) => {
-        this.setState({ books: books.data.items, isLoaded: true });
+        this.setState({ books: books.data.items, isLoaded: true }, () =>
+          console.log(this.state)
+        );
       });
+    // Checks again for an empty search after a previous
+    if (query.length === 0) {
+      this.setState({ isLoaded: false });
+      return;
+    }
   };
 
   render() {
     return (
       <Container>
-        <div id="search-flex">
-          <form className="srd" onSubmit={this.onSubmitSearch}>
-            <input
-              onChange={this.onInputChange}
-              type="text"
-              id="search"
-              name="search"
-            />
-            <button type="submit">Search</button>
-          </form>
+        <div className="srd">
+          <input
+            onChange={this.onInputChange}
+            type="text"
+            id="search-input"
+            name="search"
+            placeholder="Search for your next book"
+          />
         </div>
+
         <SearchResult books={this.state.books} ready={this.state.isLoaded} />
       </Container>
     );
