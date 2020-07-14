@@ -9,8 +9,8 @@ class SearchResult extends Component {
     this.setState(
       {
         title: book.volumeInfo.title,
-        author: book.volumeInfo.authors
-          ? book.volumeInfo.authors
+        author: book.volumeInfo.authors[0]
+          ? book.volumeInfo.authors[0]
           : "Author Undefined",
       },
       () => {
