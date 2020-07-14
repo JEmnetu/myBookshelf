@@ -12,14 +12,7 @@ function App() {
     <div className="App">
       <Router>
         <NavBar>HabteJ Bookshelf</NavBar>
-        <div id="nav-btns">
-          <Link to="/Home">
-            <Button color="dark">My Books</Button>
-          </Link>{" "}
-          <Link to="/">
-            <Button color="dark">Search</Button>
-          </Link>
-        </div>
+
         <Route path="/" exact component={Search} />
         <Route path="/Home" exact component={Home} />
       </Router>

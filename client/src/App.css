@@ -28,3 +28,35 @@
 
   margin-left: 5rem;
 }
+
+.NavBar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.NavBar a {
+  color: black;
+}
+
+.NavBar a:hover {
+  text-decoration: none;
+}
+
+.NavBar h3 {
+  margin-top: 0.3em;
+  margin-left: 1em;
+}
+
+.NavBar ul {
+  display: flex;
+  margin-top: 0.7em;
+  margin-right: 2em;
+}
+
+.NavBar ul li {
+  list-style-type: none;
+}
+
+.NavBar ul a:nth-child(2) {
+  margin-left: 0.5em;
+}
