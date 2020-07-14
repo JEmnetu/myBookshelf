@@ -24,7 +24,7 @@ class SearchResult extends Component {
   render() {
     if (this.props.ready === true) {
       return (
-        <div>
+        <div style={{ marginBottom: "2em" }}>
           <ListGroup>
             {/* {console.log(this.props.books)} */}
             {this.props.books?.map((book) => (
