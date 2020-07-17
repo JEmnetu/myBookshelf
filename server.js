@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const config = require("config");
 const mongoose = require("mongoose");
+const dotenv = require("dotenv").config();
 
 const PORT = process.env.PORT || 6001;
 
@@ -10,12 +11,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // DB Config
-const db = config.get("mongoURI");
+const db = process.env.MONGO_URI;
 
 // Connect to Mongo
 mongoose
   .connect(db)
-  .then(() => console.log("App is connected to MongoDB"))
+  .then(() => console.log("Connected to MongoDB"))
   .catch((err) => console.log(err));
 
 // Import Routes
