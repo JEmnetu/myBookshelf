@@ -20,8 +20,8 @@ const BookSchema = new Schema({
   bookUrl: {
     type: String,
   },
-  rating: {
-    type: Number,
+  pageCount: {
+    type: String,
   },
 });
 

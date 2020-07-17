@@ -23,7 +23,12 @@ router.post("/", (req, res) => {
     const newBook = new Book({
       title: req.body.title,
       author: req.body.author,
+      imgUrl: req.body.imgUrl,
+      description: req.body.description,
+      pageCount: `${req.body.pageCount} pages`,
     });
+
+    console.log(newBook);
 
     newBook.save().then((book) => res.json(book));
   });
