@@ -1,3 +1,10 @@
+.App {
+  background: url(./images/shelf.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow-y: scroll;
+  height: 100vh;
+}
 #search-div {
   display: flex;
   justify-content: center;
@@ -30,16 +37,16 @@
 }
 
 .NavBar a {
-  color: black;
+  color: white;
 }
+/* .NavBar :hover {
+ text-decoration: underline;
+} */
 
-.NavBar a:hover {
-  text-decoration: none;
-}
-
-.NavBar h3 {
+.navbar-brand {
   margin-top: 0.3em;
   margin-left: 1em;
+  color: white;
 }
 
 .NavBar ul {
@@ -52,6 +59,31 @@
   list-style-type: none;
 }
 
+/* .NavBar ul li:hover {
+  
+} */
+
 .NavBar ul a:nth-child(2) {
-  margin-left: 0.5em;
+  margin-left: 1.5em;
+}
+
+/* .saved-book-info 
+  width: auto;
+} */
+.list-group-item {
+  width: auto;
+}
+
+.saved-book-info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.saved-book-info .book-info-right {
+  width: 70%;
+}
+
+.saved-book-info p {
+  width: 100%;
+  /* align-self: center; */
 }

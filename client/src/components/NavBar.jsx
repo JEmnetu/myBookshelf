@@ -1,10 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Navbar, NavbarBrand, NavItem } from "reactstrap";
 
 const NavBar = (props) => {
   return (
-    <div className="NavBar">
-      <h3>{props.children}</h3>
+    // <div className="NavBar navbar">
+    //   <h3></h3>
+
+    // </div>
+    <Navbar className="NavBar">
+      <NavbarBrand>{props.children}</NavbarBrand>
       <ul>
         <Link to="/">
           <li>Home</li>
@@ -13,7 +18,7 @@ const NavBar = (props) => {
           <li>Books</li>
         </Link>
       </ul>
-    </div>
+    </Navbar>
   );
 };
 

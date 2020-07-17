@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import SearchResult from "../components/SearchResult";
 import SearchBar from "../components/SearchBar";
 import { Container } from "reactstrap";
+import Background from "../images/shelf.jpg";
 
 let axios = require("axios");
 

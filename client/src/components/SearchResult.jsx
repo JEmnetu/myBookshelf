@@ -9,13 +9,18 @@ class SearchResult extends Component {
     this.setState(
       {
         title: book.volumeInfo.title,
-        author: book.volumeInfo.authors[0]
+        author: book.volumeInfo.authors?.[0]
           ? book.volumeInfo.authors[0]
-          : "Author Undefined",
+          : "No Author Listed",
+        imgUrl: book.volumeInfo.imageLinks?.smallThumbnail,
+        description: book.volumeInfo?.description
+          ? book.volumeInfo.description
+          : book.volumeInfo.subtitle,
+        pageCount: book.volumeInfo.pageCount,
       },
       () => {
         axios.post("/api/books", this.state).then(() => {
-          alert("Book has been added to your bookshelf.");
+          alert(`${this.state.title} has been added to your bookshelf.`);
         });
       }
     );
