@@ -11,6 +11,9 @@
     "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
     "client-install": "npm install --prefix client"
   },
+  "engines": {
+    "node": "13.8.0"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/JEmnetu/myBookshelf.git"
