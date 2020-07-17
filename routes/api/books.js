@@ -25,10 +25,10 @@ router.post("/", (req, res) => {
       author: req.body.author,
       imgUrl: req.body.imgUrl,
       description: req.body.description,
-      pageCount: `${req.body.pageCount} pages`,
+      pageCount: req.body.pageCount
+        ? `${req.body.pageCount} pages`
+        : "Unavailable",
     });
-
-    console.log(newBook);
 
     newBook.save().then((book) => res.json(book));
   });
