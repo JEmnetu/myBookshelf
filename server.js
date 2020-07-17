@@ -1,8 +1,8 @@
+const dotenv = require("dotenv").config();
 const express = require("express");
 const app = express();
 const config = require("config");
 const mongoose = require("mongoose");
-const dotenv = require("dotenv").config();
 
 const PORT = process.env.PORT || 6001;
 
@@ -11,12 +11,12 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // DB Config
-const db = process.env.MONGO_URI;
+const db = process.env.MY_DB || process.env.MONGODB_URI;
 
 // Connect to Mongo
 mongoose
   .connect(db)
-  .then(() => console.log("Connected to MongoDB"))
+  .then(() => console.log(db))
   .catch((err) => console.log(err));
 
 // Import Routes
