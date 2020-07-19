@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // DB Config
-const db = process.env.MY_DB || process.env.MONGODB_URI;
+const db = process.env.MY_DB || process.env.MONGOLAB_JADE_URI;
 
 // Connect to Mongo
 mongoose
@@ -21,6 +21,8 @@ mongoose
 
 // Import Routes
 app.use("/api/books", require("./routes/api/books"));
+app.use("/api/users", require("./routes/api/users"));
+app.use("/api/auth", require("./routes/api/auth"));
 
 //server static assets
 if (process.env.NODE_ENV === "production") {
