@@ -21,8 +21,7 @@ mongoose
 
 // Import Routes
 app.use("/api/books", require("./routes/api/books"));
-app.use("/api/users", require("./routes/api/users"));
-app.use("/api/auth", require("./routes/api/auth"));
+// app.use("/api/users", require("./routes/api/users"));
 
 //server static assets
 if (process.env.NODE_ENV === "production") {
