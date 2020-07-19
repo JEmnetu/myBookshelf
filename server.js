@@ -11,7 +11,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // DB Config
-const db = process.env.MONGOLAB_JADE_URI || process.env.MY_DB;
+const db =
+  "mongodb://heroku_pwnq6str:7dnrnof6cpvuugn1l9b99c9vkh@ds211718.mlab.com:11718/heroku_pwnq6str" ||
+  process.env.MY_DB;
 
 // Connect to Mongo
 mongoose
