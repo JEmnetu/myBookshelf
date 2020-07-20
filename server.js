@@ -3,10 +3,12 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const path = require("path");
+const cors = require("cors");
 
 const PORT = process.env.PORT || 6001;
 
 // Middleware
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -21,6 +23,8 @@ mongoose
 
 // Import Routes
 app.use("/api/books", require("./routes/api/books"));
+app.use("/api/users", require("./routes/api/users"));
+app.use("/api/auth", require("./routes/api/auth"));
 
 //server static assets
 if (process.env.NODE_ENV === "production") {

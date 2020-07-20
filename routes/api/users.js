@@ -9,10 +9,10 @@ const jwt = require("jsonwebtoken");
 // @access Public
 
 router.post("/", (req, res) => {
-  const { name, email, password, books } = req.body;
+  const { email, password, books } = req.body;
 
   // Validation
-  if (!name || !email || !password) {
+  if (!email || !password) {
     return res.status(400).json({ msg: "Please enter all fields." });
   }
 
@@ -21,7 +21,6 @@ router.post("/", (req, res) => {
     if (user) return res.status(400).json({ msg: "User already exists." });
 
     const newUser = new User({
-      name,
       email,
       password,
       books,
