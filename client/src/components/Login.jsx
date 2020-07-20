@@ -1,8 +1,15 @@
 import React, { Component } from "react";
+import { withRouter } from "react-router-dom";
 import axios from "axios";
 
 class Login extends Component {
-  state = { username: "", password: "", email: "" };
+  state = { password: "", email: "" };
+
+  componentDidMount() {
+    if (localStorage.getItem("jwt")) {
+      this.props.history.push("/Protected");
+    }
+  }
 
   handleChange = (e) => {
     this.setState({
@@ -13,13 +20,13 @@ class Login extends Component {
   submit = (e) => {
     e.preventDefault();
     axios
-      .post("/api/users", {
-        name: this.state.username,
+      .post("/api/auth", {
         email: this.state.email,
         password: this.state.password,
       })
       .then((res) => {
-        localStorage.setItem("jwt", JSON.stringify(res.data));
+        localStorage.setItem("jwt", JSON.stringify(res.data.token));
+        this.props.history.push("/Protected");
       });
   };
   render() {
@@ -31,16 +38,14 @@ class Login extends Component {
           marginTop: "40vh",
         }}
       >
-        <label style={{ color: "red" }}>Username</label>
-        <input type="text" name="username" onChange={this.handleChange} />
-        <label style={{ color: "red" }}>Email</label>
+        ><label style={{ color: "red" }}>Email</label>
         <input type="text" name="email" onChange={this.handleChange} />
         <label style={{ color: "red" }}>Password</label>
         <input type="text" name="password" onChange={this.handleChange} />
-        <button type="submit">Register User</button>
+        <button type="submit">Login</button>
       </form>
     );
   }
 }
 
-export default Login;
+export default withRouter(Login);
