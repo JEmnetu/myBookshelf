@@ -1,6 +1,6 @@
 # HabteJ Bookshelf
 
-This application is deployed on Heroku and can be accessed at [this link](https://shrouded-wildwood-28359.herokuapp.com/Home).
+This application is deployed on Heroku and can be accessed at [this link](https://habtej-bookshelf.herokuapp.com/).
 
 ## About
 
