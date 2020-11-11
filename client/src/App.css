@@ -5,6 +5,7 @@
   overflow-y: scroll;
   height: 100vh;
 }
+
 #search-div {
   display: flex;
   justify-content: center;
@@ -39,6 +40,7 @@
 .NavBar a {
   color: white;
 }
+
 /* .NavBar :hover {
  text-decoration: underline;
 } */

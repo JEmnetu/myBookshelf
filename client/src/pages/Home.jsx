@@ -1,16 +1,9 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
+
 import { ListGroup, ListGroupItem, Button, Container } from "reactstrap";
 let axios = require("axios");
 
 class Home extends Component {
-  //   constructor(props) {
-  //     super(props);
-  //     this.state = {
-  //       books: [],
-  //       isLoaded: false,
-  //     };
-  //   }
   state = { books: [], isLoaded: false };
   componentDidMount = () => {
     axios.get("/api/books").then((books) => {
@@ -20,7 +13,6 @@ class Home extends Component {
   onDelete = (id) => {
     const savedBooks = [...this.state.books];
 
-    // newBooks.forEach((book) => console.log(book._id));
     const newBooks = savedBooks.filter((book) => book._id !== id);
     this.setState(
       {
@@ -32,18 +24,6 @@ class Home extends Component {
     );
   };
   render() {
-    // if (this.state.books < 2) {
-    //   return (
-    //     <Container>
-    //       <div>
-    //         <h3 style={{ textAlign: "center" }}>
-    //           Search for new books to add to your bookshelf!
-    //         </h3>
-    //       </div>
-    //     </Container>
-    //   );
-    // }
-
     return (
       <Container>
         <div>
@@ -60,7 +40,7 @@ class Home extends Component {
                 </Button>
                 <div className="saved-book-info">
                   <div>
-                    <img src={book.imgUrl} alt="saved book image" />
+                    <img src={book.imgUrl} alt="saved book" />
                   </div>
                   <div className="book-info-right">
                     <h5>{book.title}</h5>

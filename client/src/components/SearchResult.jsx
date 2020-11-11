@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { ListGroup, ListGroupItem, Button } from "reactstrap";
-import { Link } from "react-router-dom";
 
 import axios from "axios";
 class SearchResult extends Component {
@@ -48,10 +47,10 @@ class SearchResult extends Component {
                   href={book.volumeInfo.previewLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  alt="book_image"
                 >
                   <img
                     className="bookImg"
+                    alt="book"
                     src={book.volumeInfo.imageLinks?.smallThumbnail}
                   />
                 </a>

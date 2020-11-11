@@ -11,7 +11,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 // DB Config
-const db = process.env.MONGOLAB_JADE_URI || process.env.MY_DB;
+const db = process.env.MY_DB;
 
 // Connect to Mongo
 mongoose

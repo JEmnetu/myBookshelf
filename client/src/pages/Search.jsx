@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import SearchResult from "../components/SearchResult";
 import SearchBar from "../components/SearchBar";
 import { Container } from "reactstrap";
-import Background from "../images/shelf.jpg";
 
 let axios = require("axios");
 
@@ -23,9 +22,7 @@ class Search extends Component {
     axios
       .get(`https://www.googleapis.com/books/v1/volumes?q=${e.target.value}`)
       .then((books) => {
-        this.setState({ books: books.data.items, isLoaded: true }, () =>
-          console.log(this.state)
-        );
+        this.setState({ books: books.data.items, isLoaded: true });
       });
     // Checks again for an empty search after a previous
     if (query.length === 0) {
